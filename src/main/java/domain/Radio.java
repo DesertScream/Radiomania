@@ -7,15 +7,12 @@ public class Radio {
     public int getCurrentStation() {
         return currentStation;
     }
-
     public void setToMaxStation() {
         currentStation = 9;
     }
-
     public void setToMinStation() {
         currentStation = 0;
     }
-
     public void setCurrentStation(int newCurrentStation) {
         if (newCurrentStation > 9) {
             return;
@@ -25,6 +22,7 @@ public class Radio {
         }
         currentStation = newCurrentStation;
     }
+
 
     public void nextStation() {
         if (currentStation == 9) {
@@ -53,9 +51,7 @@ public class Radio {
         currentVolume = 10;
     }
 
-    public void setToMinVolume() {
-        currentVolume = 0;
-    }
+
 
     public void setCurrentVolume(int newCurrentVolume) {
         if (newCurrentVolume > 10) {
