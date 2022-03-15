@@ -27,7 +27,11 @@ public class Radio {
         return currentVolume;
     }
 
+
     public void setStationsQuantity(int stationsQuantity) {
+        if (stationsQuantity < 0) {
+            return;
+        }
         this.stationsQuantity = stationsQuantity;
     }
 
