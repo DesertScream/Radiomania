@@ -2,19 +2,37 @@ package domain;
 
 public class Radio {
 
+    private int stationsQuantity = 10;
     private int currentStation;
+    private int currentVolume;
+
+    ////////////////////////////////////////////////////
+    public Radio(int stationsQuantity) {
+        this.stationsQuantity = stationsQuantity;
+    }
+
+    public Radio() {
+    }
+
+    ////////////////////////////////////////////////////
+    public int getStationsQuantity() {
+        return stationsQuantity;
+    }
 
     public int getCurrentStation() {
         return currentStation;
     }
-    public void setToMaxStation() {
-        currentStation = 9;
+
+    public int getCurrentVolume() {
+        return currentVolume;
     }
-    public void setToMinStation() {
-        currentStation = 0;
+
+    public void setStationsQuantity(int stationsQuantity) {
+        this.stationsQuantity = stationsQuantity;
     }
+
     public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation > 9) {
+        if (newCurrentStation > (stationsQuantity - 1)) {
             return;
         }
         if (newCurrentStation < 0) {
@@ -23,9 +41,18 @@ public class Radio {
         currentStation = newCurrentStation;
     }
 
-
+    public void setCurrentVolume(int newCurrentVolume) {
+        if (newCurrentVolume > 100) {
+            return;
+        }
+        if (newCurrentVolume < 0) {
+            return;
+        }
+        currentVolume = newCurrentVolume;
+    }
+    ////////////////////////////////////////////////////
     public void nextStation() {
-        if (currentStation == 9) {
+        if (currentStation == (stationsQuantity - 1)) {
             currentStation = 0;
             return;
         }
@@ -34,37 +61,14 @@ public class Radio {
 
     public void prevStation() {
         if (currentStation == 0) {
-            currentStation = 9;
+            currentStation = (stationsQuantity - 1);
             return;
         }
         currentStation--;
     }
 
-
-    public int currentVolume;
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public void setToMaxVolume() {
-        currentVolume = 10;
-    }
-
-
-
-    public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume > 10) {
-            return;
-        }
-        if (newCurrentVolume < 0) {
-            return;
-        }
-        currentVolume = newCurrentVolume;
-    }
-
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume++;
         }
     }
@@ -75,3 +79,8 @@ public class Radio {
         }
     }
 }
+
+
+
+
+
